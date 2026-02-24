@@ -1,0 +1,90 @@
+# VoiceToVision - Git Ignore
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Datos del sistema
+/ideas/
+/temp/
+/data/
+/logs/*.log
+/logs/*.log.*
+
+# Descargas temporales
+/downloads/
+/temp/downloads/
+
+# Base de datos
+*.db
+*.db-journal
+*.db-wal
+
+# TODO list (personal)
+TODO.md
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# FFmpeg
+ffmpeg.exe
+ffprobe.exe
+*.dll
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Documentación generada
+docs/_build/
+site/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json

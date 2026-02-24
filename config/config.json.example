@@ -1,0 +1,93 @@
+{
+  "discord": {
+    "authorized_users": [
+      "123456789012345678",
+      "987654321098765432"
+    ],
+    "admins": [
+      "123456789012345678"
+    ],
+    "command_prefix": "/",
+    "max_message_length": 2000
+  },
+  "whatsapp": {
+    "enabled": false,
+    "token": "",
+    "phone_number": ""
+  },
+  "system": {
+    "base_folder": "./ideas",
+    "temp_folder": "./temp",
+    "logs_folder": "./logs",
+    "database_path": "./data/ideas.db",
+    "max_audio_size_mb": 25,
+    "supported_formats": [
+      ".mp3",
+      ".wav",
+      ".ogg",
+      ".m4a",
+      ".webm"
+    ],
+    "enable_logs": true,
+    "log_level": "INFO",
+    "link_expiry_minutes": 30,
+    "auto_delete_enabled": false,
+    "auto_delete_days": 90,
+    "encryption_enabled": false,
+    "max_concurrent_jobs": 2,
+    "max_filename_length": 50,
+    "max_path_length": 240
+  },
+  "ollama": {
+    "host": "http://localhost:11434",
+    "model": "llama3.2",
+    "timeout": 120,
+    "temperature": 0.7,
+    "max_tokens": 2000
+  },
+  "whisper": {
+    "model": "base",
+    "language": "auto",
+    "remove_filler_words": true,
+    "filler_words": [
+      "eh",
+      "ah",
+      "um",
+      "mmm",
+      "este",
+      "o sea",
+      "bueno",
+      "entonces",
+      "pues",
+      "sabes",
+      "digamos",
+      "como que",
+      "tipo"
+    ]
+  },
+  "analysis": {
+    "required_fields": [
+      "nombre_idea",
+      "resumen",
+      "explicacion",
+      "tipo",
+      "tags",
+      "nivel_madurez",
+      "viabilidad",
+      "siguientes_pasos",
+      "riesgos"
+    ],
+    "idea_types": [
+      "App",
+      "Negocio",
+      "Automatización",
+      "Contenido",
+      "Otro"
+    ],
+    "madurez_levels": [
+      "concepto",
+      "desarrollado",
+      "avanzado"
+    ]
+  }
+}
