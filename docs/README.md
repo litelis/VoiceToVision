@@ -113,8 +113,9 @@ Transforma tus audios de Discord y WhatsApp en ideas estructuradas, analizadas y
 ### 1. Clonar o Descargar
 
 ```bash
-git clone https://github.com/tuusuario/VoiceToVision.git
+git clone https://github.com/litee/VoiceToVision.git
 cd VoiceToVision
+
 ```
 
 O descarga y extrae el ZIP.
@@ -122,8 +123,9 @@ O descarga y extrae el ZIP.
 ### 2. Ejecutar Setup Interactivo
 
 ```bash
-python setup.py
+python scripts/setup.py
 ```
+
 
 El setup te guiará por:
 - ✅ Creación de entorno virtual (opcional)
@@ -209,8 +211,9 @@ SECRET_KEY=clave_secreta_generada
 
 ```bash
 # Con entorno virtual activado:
-python bot.py
+python src/bot/bot.py
 ```
+
 
 Verás:
 ```
@@ -337,11 +340,12 @@ Cada idea crea una carpeta estructurada:
 {
   "sistema": {
     "uuid": "550e8400-e29b-41d4-a716-446655440000",
-    "fecha_creacion": "2024-01-15T10:30:00",
+    "fecha_creacion": "2026-01-15T10:30:00",
     "creado_por": "123456789",
     "version": 1,
     "nombre_carpeta": "App_Delivery_Local"
   },
+
   "analisis": { ... },
   "estadisticas": {
     "longitud_transcripcion": 1250,
@@ -461,9 +465,10 @@ MIT License - ver [LICENSE](LICENSE) para detalles.
 
 ## 📞 Soporte
 
-- **Issues**: [GitHub Issues](https://github.com/tuusuario/VoiceToVision/issues)
-- **Discord**: [Servidor de Soporte](https://discord.gg/tulink)
+- **Issues**: [GitHub Issues](https://github.com/litee/VoiceToVision/issues)
+- **Discord**: [Servidor de Soporte](https://discord.gg/voicetovision)
 - **Email**: soporte@voicetovision.dev
+
 
 ---
 

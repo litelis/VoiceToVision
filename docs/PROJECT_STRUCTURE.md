@@ -10,9 +10,9 @@
 
 | Archivo | Descripción | Líneas |
 |---------|-------------|--------|
-| `start.py` | Script de inicio rápido con verificaciones | 280 |
-| `setup.py` | Configuración interactiva inicial | 450 |
-| `bot.py` | Bot de Discord completo (entry point) | 750 |
+| `scripts/start.py` | Script de inicio rápido con verificaciones | 280 |
+| `scripts/setup.py` | Configuración interactiva inicial | 450 |
+| `src/bot/bot.py` | Bot de Discord completo (entry point) | 750 |
 
 ---
 
@@ -20,12 +20,12 @@
 
 | Archivo | Descripción | Funciones Principales |
 |---------|-------------|----------------------|
-| `logger.py` | Sistema de logs centralizado | SystemLogger, get_logger |
-| `database.py` | Base de datos SQLite async | IdeasDatabase, get_database |
-| `security.py` | Autenticación y seguridad | SecurityManager, sanitización Windows |
-| `audio_processor.py` | Procesamiento de audio | AudioProcessor, FFmpeg |
-| `whisper_module.py` | Transcripción con Whisper | WhisperTranscriber |
-| `ollama_module.py` | Análisis con Ollama | OllamaAnalyzer |
+| `src/core/logger.py` | Sistema de logs centralizado | SystemLogger, get_logger |
+| `src/core/database.py` | Base de datos SQLite async | IdeasDatabase, get_database |
+| `src/core/security.py` | Autenticación y seguridad | SecurityManager, sanitización Windows |
+| `src/processing/audio_processor.py` | Procesamiento de audio | AudioProcessor, FFmpeg |
+| `src/processing/whisper_module.py` | Transcripción con Whisper | WhisperTranscriber |
+| `src/processing/ollama_module.py` | Análisis con Ollama | OllamaAnalyzer |
 
 ---
 
@@ -33,9 +33,9 @@
 
 | Archivo | Descripción | Funciones Principales |
 |---------|-------------|----------------------|
-| `idea_manager.py` | Gestión de carpetas de ideas | IdeaManager, CRUD |
-| `search_engine.py` | Motor de búsqueda | SearchEngine, scoring |
-| `zip_manager.py` | Descargas ZIP temporales | ZipManager, tokens seguros |
+| `src/managers/idea_manager.py` | Gestión de carpetas de ideas | IdeaManager, CRUD |
+| `src/managers/search_engine.py` | Motor de búsqueda | SearchEngine, scoring |
+| `src/managers/zip_manager.py` | Descargas ZIP temporales | ZipManager, tokens seguros |
 
 ---
 
@@ -44,40 +44,39 @@
 | Archivo | Descripción | Propósito |
 |---------|-------------|-----------|
 | `requirements.txt` | Dependencias Python | pip install -r requirements.txt |
-| `.env.example` | Plantilla de variables de entorno | Copiar a .env y configurar |
-| `config.json.example` | Plantilla de configuración | Copiar a config.json y ajustar |
+| `config/config.json.example` | Plantilla de configuración | Copiar a config.json y ajustar |
 | `.gitignore` | Archivos ignorados por git | Evitar subir datos sensibles |
 | `LICENSE` | Licencia MIT | Uso libre del código |
-| `README.md` | Documentación principal | Guía completa de uso |
-| `CONTRIBUTING.md` | Guía de contribución | Cómo contribuir al proyecto |
-| `CHANGELOG.md` | Historial de cambios | Versionado y cambios |
-| `TODO.md` | Plan de desarrollo | Seguimiento de tareas |
-| `PROJECT_STRUCTURE.md` | Este archivo | Estructura del proyecto |
+| `docs/README.md` | Documentación principal | Guía completa de uso |
+| `docs/CONTRIBUTING.md` | Guía de contribución | Cómo contribuir al proyecto |
+| `docs/CHANGELOG.md` | Historial de cambios | Versionado y cambios |
+| `docs/TODO.md` | Plan de desarrollo | Seguimiento de tareas |
+| `docs/PROJECT_STRUCTURE.md` | Este archivo | Estructura del proyecto |
 
 ---
 
 ## 🗺️ Mapa de Dependencias
 
 ```
-start.py
+scripts/start.py
     ├── Verifica: FFmpeg, Ollama, Python, Config
-    └── Ejecuta: bot.py
+    └── Ejecuta: src/bot/bot.py
 
-setup.py
+scripts/setup.py
     ├── Genera: .env, config.json
     ├── Crea: directorios (ideas/, temp/, logs/, data/)
     └── Instala: dependencias
 
-bot.py (Entry Point)
-    ├── logger.py (logging global)
-    ├── database.py (SQLite)
-    ├── security.py (auth)
-    ├── audio_processor.py (FFmpeg)
-    ├── whisper_module.py (transcripción)
-    ├── ollama_module.py (análisis IA)
-    ├── idea_manager.py (gestión carpetas)
-    ├── search_engine.py (búsqueda)
-    └── zip_manager.py (descargas)
+src/bot/bot.py (Entry Point)
+    ├── src/core/logger.py (logging global)
+    ├── src/core/database.py (SQLite)
+    ├── src/core/security.py (auth)
+    ├── src/processing/audio_processor.py (FFmpeg)
+    ├── src/processing/whisper_module.py (transcripción)
+    ├── src/processing/ollama_module.py (análisis IA)
+    ├── src/managers/idea_manager.py (gestión carpetas)
+    ├── src/managers/search_engine.py (búsqueda)
+    └── src/managers/zip_manager.py (descargas)
 ```
 
 ---
@@ -108,7 +107,7 @@ bot.py (Entry Point)
 
 ## 🎯 Funcionalidades por Módulo
 
-### 🔐 Seguridad (`security.py`)
+### 🔐 Seguridad (`src/core/security.py`)
 - ✅ Autenticación por lista blanca
 - ✅ Roles (admin/usuario)
 - ✅ Sanitización Windows estricta
@@ -116,34 +115,34 @@ bot.py (Entry Point)
 - ✅ Validación de archivos
 - ✅ Generación de tokens seguros
 
-### 📝 Logging (`logger.py`)
+### 📝 Logging (`src/core/logger.py`)
 - ✅ Logs de sistema con rotación
 - ✅ Logs de seguridad separados
 - ✅ Auditoría de operaciones
 - ✅ Niveles: DEBUG, INFO, WARNING, ERROR, CRITICAL
 
-### 💾 Base de Datos (`database.py`)
+### 💾 Base de Datos (`src/core/database.py`)
 - ✅ SQLite async con aiosqlite
 - ✅ Indexación de ideas
 - ✅ Búsqueda con filtros
 - ✅ Versionado automático
 - ✅ Estadísticas del sistema
 
-### 🎙️ Audio (`audio_processor.py`)
+### 🎙️ Audio (`src/processing/audio_processor.py`)
 - ✅ Validación de formatos
 - ✅ Conversión FFmpeg
 - ✅ Limpieza de muletillas
 - ✅ Detección de duración
 - ✅ Limpieza de temporales
 
-### 🧠 IA (`whisper_module.py` + `ollama_module.py`)
+### 🧠 IA (`src/processing/whisper_module.py` + `src/processing/ollama_module.py`)
 - ✅ Transcripción Whisper local
 - ✅ Detección de idioma
 - ✅ Análisis estructurado con Ollama
 - ✅ Validación de JSON
 - ✅ Prompts estrictos
 
-### 📁 Gestión (`idea_manager.py`)
+### 📁 Gestión (`src/managers/idea_manager.py`)
 - ✅ Creación de carpetas
 - ✅ UUID único por idea
 - ✅ Versionado automático
@@ -151,21 +150,21 @@ bot.py (Entry Point)
 - ✅ Renombrado (admin)
 - ✅ Eliminación (admin)
 
-### 🔍 Búsqueda (`search_engine.py`)
+### 🔍 Búsqueda (`src/managers/search_engine.py`)
 - ✅ Búsqueda por nombre
 - ✅ Scoring de relevancia
 - ✅ Filtros avanzados
 - ✅ Sugerencias de autocompletado
 - ✅ Ideas recientes
 
-### 📦 Descargas (`zip_manager.py`)
+### 📦 Descargas (`src/managers/zip_manager.py`)
 - ✅ Compresión ZIP
 - ✅ Enlaces temporales
 - ✅ Tokens seguros
 - ✅ Expiración configurable
 - ✅ Limpieza automática
 
-### 🤖 Bot (`bot.py`)
+### 🤖 Bot (`src/bot/bot.py`)
 - ✅ Comandos slash
 - ✅ Cola de procesamiento async
 - ✅ Botones interactivos
@@ -179,19 +178,19 @@ bot.py (Entry Point)
 ```
 Usuario envía audio (Discord)
     ↓
-bot.py recibe y valida
+src/bot/bot.py recibe y valida
     ↓
-audio_processor.py valida y convierte
+src/processing/audio_processor.py valida y convierte
     ↓
-whisper_module.py transcribe
+src/processing/whisper_module.py transcribe
     ↓
-ollama_module.py analiza
+src/processing/ollama_module.py analiza
     ↓
-idea_manager.py crea carpeta y archivos
+src/managers/idea_manager.py crea carpeta y archivos
     ↓
-database.py indexa la idea
+src/core/database.py indexa la idea
     ↓
-bot.py envía confirmación con botones
+src/bot/bot.py envía confirmación con botones
     ↓
 Usuario puede: buscar, descargar, renombrar
 ```
@@ -288,7 +287,7 @@ SECRET_KEY=clave_secreta
 
 **Versión**: 1.0.0  
 **Estado**: ✅ COMPLETO Y FUNCIONAL  
-**Fecha**: 2024-01-15  
+**Fecha**: 2026-01-15  
 
 ### Funcionalidades Completas
 - [x] Recepción de audios Discord
@@ -303,9 +302,9 @@ SECRET_KEY=clave_secreta
 - [x] Documentación completa
 
 ### Listo para Usar
-1. ✅ Ejecutar `python setup.py`
+1. ✅ Ejecutar `python scripts/setup.py`
 2. ✅ Configurar `.env` y `config.json`
-3. ✅ Iniciar con `python start.py` o `python bot.py`
+3. ✅ Iniciar con `python scripts/start.py` o `python src/bot/bot.py`
 4. ✅ Enviar audios a Discord
 
 ---

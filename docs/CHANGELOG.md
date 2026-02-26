@@ -13,7 +13,7 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 - Sistema de plugins
 - Exportación a CSV/Excel
 
-## [1.0.0] - 2024-01-15
+## [1.0.0] - 2026-01-15
 
 ### 🎉 Lanzamiento Inicial
 
@@ -49,7 +49,7 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 - **Auditoría** completa de operaciones
 
 #### ⚙️ Configuración
-- **Setup interactivo** (`setup.py`)
+- **Setup interactivo** (`scripts/setup.py`)
 - **Configuración flexible** vía `config.json`
 - **Variables de entorno** en `.env`
 - **Validación** de configuración al inicio
@@ -158,7 +158,7 @@ Formato: `MAJOR.MINOR.PATCH`
 ### Al Lanzar una Versión
 
 1. Mover contenido de `[Unreleased]` a nueva sección de versión
-2. Añadir fecha: `## [1.1.0] - 2024-02-01`
+2. Añadir fecha: `## [1.1.0] - 2026-02-01`
 3. Crear nueva sección `[Unreleased]` vacía
 4. Taggear en git: `git tag -a v1.1.0 -m "Lanzamiento versión 1.1.0"`
 
@@ -166,7 +166,7 @@ Formato: `MAJOR.MINOR.PATCH`
 
 ## Historial de Cambios Detallado
 
-### [1.0.0] - 2024-01-15
+### [1.0.0] - 2026-01-15
 
 #### Commits Principales
 - `feat(core)`: Implementación inicial del sistema
@@ -177,20 +177,20 @@ Formato: `MAJOR.MINOR.PATCH`
 - `docs(readme)`: Documentación completa del proyecto
 
 #### Archivos Creados (16 total)
-- `bot.py` - Entry point del bot
-- `setup.py` - Configuración interactiva
+- `src/bot/bot.py` - Entry point del bot
+- `scripts/setup.py` - Configuración interactiva
 - `requirements.txt` - Dependencias
-- `logger.py` - Sistema de logs
-- `database.py` - Base de datos SQLite
-- `security.py` - Módulo de seguridad
-- `audio_processor.py` - Procesamiento de audio
-- `whisper_module.py` - Transcripción
-- `ollama_module.py` - Análisis con IA
-- `idea_manager.py` - Gestión de ideas
-- `search_engine.py` - Motor de búsqueda
-- `zip_manager.py` - Gestión de ZIP
-- `README.md` - Documentación principal
-- `CONTRIBUTING.md` - Guía de contribución
+- `src/core/logger.py` - Sistema de logs
+- `src/core/database.py` - Base de datos SQLite
+- `src/core/security.py` - Módulo de seguridad
+- `src/processing/audio_processor.py` - Procesamiento de audio
+- `src/processing/whisper_module.py` - Transcripción
+- `src/processing/ollama_module.py` - Análisis con IA
+- `src/managers/idea_manager.py` - Gestión de ideas
+- `src/managers/search_engine.py` - Motor de búsqueda
+- `src/managers/zip_manager.py` - Gestión de ZIP
+- `docs/README.md` - Documentación principal
+- `docs/CONTRIBUTING.md` - Guía de contribución
 - `LICENSE` - Licencia MIT
 - `.gitignore` - Archivos ignorados
 
@@ -198,9 +198,9 @@ Formato: `MAJOR.MINOR.PATCH`
 
 ## Enlaces
 
-- [Repositorio](https://github.com/tuusuario/VoiceToVision)
-- [Issues](https://github.com/tuusuario/VoiceToVision/issues)
-- [Releases](https://github.com/tuusuario/VoiceToVision/releases)
+- [Repositorio](https://github.com/litee/VoiceToVision)
+- [Issues](https://github.com/litee/VoiceToVision/issues)
+- [Releases](https://github.com/litee/VoiceToVision/releases)
 
 ---
 

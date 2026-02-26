@@ -1,4 +1,25 @@
 #!/usr/bin/env python3
+# MIT License
+# Copyright (c) 2026 VoiceToVision
+# 
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
 """
 VoiceToVision - Setup Interactivo
 Configura el entorno completo del sistema de organización de ideas por voz.
@@ -480,6 +501,14 @@ def main():
     # Setup del entorno virtual
     venv_path = setup_virtual_environment()
     
+    # Preparar comando de activación
+    activate_cmd = "pip install -r requirements.txt"
+    if venv_path:
+        if os.name == 'nt':
+            activate_cmd = str(venv_path) + "\\Scripts\\activate"
+        else:
+            activate_cmd = "source " + str(venv_path) + "/bin/activate"
+    
     # Resumen final
     print("\n" + "=" * 60)
     print("🎉 ¡CONFIGURACIÓN COMPLETADA!")
@@ -499,10 +528,12 @@ def main():
       ollama pull llama3.2
    
    3. {"Activa el entorno virtual:" if venv_path else "Instala dependencias:"}
-      {f"{venv_path}\\\\Scripts\\\\activate" if venv_path and os.name == 'nt' else f"source {venv_path}/bin/activate" if venv_path else "pip install -r requirements.txt"}
+      {activate_cmd}
+
    
    4. Inicia el bot:
-      python bot.py
+      python src/bot/bot.py
+
 
 📖 Documentación completa en README.md
 
