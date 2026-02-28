@@ -113,7 +113,10 @@ class VoiceToVisionBot(commands.Bot):
         # Cargar .env si existe
         try:
             from dotenv import load_dotenv
-            load_dotenv()
+            # Cargar desde la raíz del proyecto donde está el .env
+            project_root = Path(__file__).resolve().parent.parent
+            env_path = project_root / ".env"
+            load_dotenv(dotenv_path=env_path)
         except ImportError:
             pass
     
