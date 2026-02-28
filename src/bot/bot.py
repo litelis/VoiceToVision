@@ -36,6 +36,12 @@ from datetime import datetime
 from typing import Optional, Dict
 import tempfile
 
+# Add project root to Python path to allow imports from src module
+# when running the bot from any directory
+_project_root = Path(__file__).resolve().parent.parent.parent
+if str(_project_root) not in sys.path:
+    sys.path.insert(0, str(_project_root))
+
 # Importar módulos del sistema
 from src.core.logger import init_logger, get_logger
 from src.core.database import get_database, close_database
